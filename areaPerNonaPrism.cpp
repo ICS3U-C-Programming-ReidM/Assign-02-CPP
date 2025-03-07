@@ -2,7 +2,7 @@
 //
 // Created by Reid MacLean
 // Created on February 2025
-// This program calculates the area and perimeter of a rectangle with user input
+// This program calculates the surface area and volume of a nonagonal prism with user input
 
 #include <cmath>
 #include <iostream>
