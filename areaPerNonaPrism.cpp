@@ -4,32 +4,46 @@
 // Created on February 2025
 // This program calculates the surface area and volume of a nonagonal prism with user input
 
-#include <cmath>
+#include <cmath>  // For mathematical functions like tan and radians
 #include <iostream>
 
-using namespace std;
+// Declare commonly used standard library symbols
+using std::cin;
+using std::cout;
+using std::endl;
+
+double cot(double angle) {
+    return 1.0 / tan(angle);
+}
 
 int main() {
     // Display welcome message
-    cout << "Hello! Welcome to the Nonagonal Prism Calculator." << endl;
-    cout << "I can help you calculate the volume and surface area of a nonagonal prism." << endl;
+    std::cout << "Hello! Welcome to the Nonagonal Prism Calculator." << std::endl;
+    std::cout << "I can help you calculate the volume and surface area of a nonagonal "
+         << "prism." << std::endl;
 
-    // Prompt user for the necessary inputs
+    // Declare variables for base edge length and height
     double a, h;
-    cout << "Please enter the base edge length (a): ";
-    cin >> a;
-    cout << "Please enter the height of the prism (h): ";
-    cin >> h;
+
+    // Prompt user for inputs
+    std::cout << "Please enter the base edge length (a): ";
+    std::cin >> a;
+
+    std::cout << "Please enter the height of the prism (h): ";
+    std::cin >> h;
 
     // Calculate the surface area of the nonagonal prism
-    double surface_area = 9 * a * h + (9 / 2) * pow(a, 2) * (1 / tan(M_PI / 9));
+    double angle = 180.0 / 9.0;
+    double surface_area = 9 * a * h + (9.0 / 2.0) * a * a *
+                                          cot(angle * M_PI / 180.0);
 
     // Calculate the volume of the nonagonal prism
-    double volume = (9 / 4) * pow(a, 2) * (1 / tan(M_PI / 9)) * h;
+    double volume = (9.0 / 4.0) * a * a * cot(angle * M_PI / 180.0) * h;
 
-    // Display the calculated results
-    cout << "The surface area of the nonagonal prism is: " << surface_area << endl;
-    cout << "The volume of the nonagonal prism is: " << volume << endl;
+    // Display the results
+    std::cout << "The surface area of the nonagonal prism is: " << surface_area
+         << std::endl;
+    std::cout << "The volume of the nonagonal prism is: " << volume << std::endl;
 
     return 0;
 }
